@@ -1,5 +1,7 @@
 package com.coursespring.cursomc.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ public class Produto implements Serializable {
 
     // Associação: um Produto possui várias Categorias, então em Produto deve haver uma lista de Categorias
 
+    @JsonBackReference
     @ManyToMany
     @JoinTable(
             name = "PRODUTO_CATEGORIA", // nome da tabela no bd que faz o meio de campo contendo os ids da relação
