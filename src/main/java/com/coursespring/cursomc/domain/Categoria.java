@@ -19,7 +19,6 @@ public class Categoria implements Serializable {
 
     // Associação: uma Categoria possui vários produtos, então em Categoria deve haver uma lista de produtos
 
-    @JsonManagedReference
     @ManyToMany(mappedBy = "categorias")
     private List<Produto> produtos = new ArrayList<>();
 

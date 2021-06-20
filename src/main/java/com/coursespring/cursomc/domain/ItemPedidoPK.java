@@ -39,7 +39,7 @@ public class ItemPedidoPK implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ItemPedidoPK that = (ItemPedidoPK) o;
-        return Objects.equals(pedido, that.pedido) && Objects.equals(produto, that.produto);
+        return pedido.equals(that.pedido) && produto.equals(that.produto);
     }
 
     @Override
