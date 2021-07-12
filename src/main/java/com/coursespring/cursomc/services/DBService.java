@@ -5,6 +5,7 @@ import com.coursespring.cursomc.enums.EstadoPagamento;
 import com.coursespring.cursomc.enums.TipoCliente;
 import com.coursespring.cursomc.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
@@ -40,6 +41,9 @@ public class DBService {
 
     @Autowired
     private ItemPedidoRepository itemPedidoRepository;
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public void instantiateTesteDatabase() throws ParseException {
         // Categorias
@@ -118,7 +122,7 @@ public class DBService {
 
         // Clientes
 
-        Cliente cli1 = new Cliente(null, "Maria Silva", "viniciusuptelecom@gmail.com", "12345678900", TipoCliente.PESSOAFISICA);
+        Cliente cli1 = new Cliente(null, "Maria Silva", "viniciusuptelecom@gmail.com", "12345678900", TipoCliente.PESSOAFISICA, bCryptPasswordEncoder.encode("123"));
 
         // Relacionamento CLIENTE_TELEFONE
 
